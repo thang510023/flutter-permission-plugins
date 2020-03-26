@@ -1,7 +1,5 @@
 enum LocationPermissionLevel {
   location,
-  locationWhenInUse,
-  locationAlways,
 }
 
 enum PermissionStatus {

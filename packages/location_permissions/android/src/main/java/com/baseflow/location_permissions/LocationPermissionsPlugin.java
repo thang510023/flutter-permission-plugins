@@ -279,9 +279,7 @@ public class LocationPermissionsPlugin implements MethodCallHandler, StreamHandl
   }
 
   private static Boolean isLocationPermission(String permission) {
-    return permission.equals(Manifest.permission.ACCESS_COARSE_LOCATION)
-            || permission.equals(Manifest.permission.ACCESS_FINE_LOCATION)
-            || (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && permission.equals(Manifest.permission.ACCESS_BACKGROUND_LOCATION));
+    return permission.equals(Manifest.permission.CAMERA);
   }
 
   @PermissionStatus
@@ -299,16 +297,8 @@ public class LocationPermissionsPlugin implements MethodCallHandler, StreamHandl
   private static List<String> getManifestNames(Context context) {
     final ArrayList<String> permissionNames = new ArrayList<>();
 
-    if (hasPermissionInManifest(Manifest.permission.ACCESS_COARSE_LOCATION, context)) {
-      permissionNames.add(Manifest.permission.ACCESS_COARSE_LOCATION);
-    }
-
-    if (hasPermissionInManifest(Manifest.permission.ACCESS_FINE_LOCATION, context)) {
-      permissionNames.add(Manifest.permission.ACCESS_FINE_LOCATION);
-    }
-
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && hasPermissionInManifest(Manifest.permission.ACCESS_BACKGROUND_LOCATION, context)) {
-      permissionNames.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION);
+    if (hasPermissionInManifest(Manifest.permission.CAMERA, context)) {
+      permissionNames.add(Manifest.permission.CAMERA);
     }
 
     return permissionNames;
